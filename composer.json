@@ -1,0 +1,32 @@
+{
+  "name": "sxqibo/fast-weixin",
+  "description": "微信开发接口！",
+  "type": "library",
+  "keywords": [
+    "支付即服务"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "files": [],
+    "psr-4": {
+      "Sxqibo\\Weixin\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "hongwei",
+      "email": "403236160@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "~6.0",
+    "ext-openssl": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "ext-libxml": "*",
+    "overtrue/wechat": "^5.6",
+    "wechatpay/wechatpay-guzzle-middleware": "^0.2.2"
+  }
+}
