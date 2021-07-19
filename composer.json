@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.2",
     "guzzlehttp/guzzle": "~6.0",
     "ext-openssl": "*",
     "ext-curl": "*",
@@ -27,6 +27,7 @@
     "ext-simplexml": "*",
     "ext-libxml": "*",
     "overtrue/wechat": "^5.6",
-    "wechatpay/wechatpay-guzzle-middleware": "^0.2.2"
+    "wechatpay/wechatpay-guzzle-middleware": "^0.2.2",
+    "ext-http": "*"
   }
 }
