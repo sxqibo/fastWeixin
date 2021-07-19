@@ -63,7 +63,7 @@ class Service extends BaseService
 
         $newData = [
             'corpid'   => $this->config['corpid'],                 //参数1：企业ID
-            'store_id' => $this->config['store_id'],               //参数2：门店ID
+            'store_id' => (int)$this->config['store_id'],               //参数2：门店ID
             'userid'   => $this->config['contact_user_account'],   //参数3：企业微信的员工ID
             'name'     => Utility::getEncryptData($userInfo['name'], $this->config['platform_public']),    //参数4：企业微信的员工姓名
             'mobile'   => Utility::getEncryptData($userInfo['mobile'], $this->config['platform_public']),  //参数5：手机号码
