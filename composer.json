@@ -21,13 +21,7 @@
   "require": {
     "php": ">=7.2",
     "guzzlehttp/guzzle": "~6.0",
-    "ext-openssl": "*",
-    "ext-curl": "*",
-    "ext-json": "*",
-    "ext-simplexml": "*",
-    "ext-libxml": "*",
     "overtrue/wechat": "^5.6",
-    "wechatpay/wechatpay-guzzle-middleware": "^0.2.2",
-    "ext-http": "*"
+    "wechatpay/wechatpay-guzzle-middleware": "^0.2.2"
   }
 }
