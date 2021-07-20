@@ -93,8 +93,7 @@ class Service extends BaseService
     public function assign($guideId, $outTradeNo): array
     {
         $newData = [
-            'guide_id'     => $guideId,         //参数1：服务人员在服务人员系统中的唯一标识
-            'out_trade_no' => $outTradeNo,      //参数2：商户系统内部订单号
+            'out_trade_no' => (string)$outTradeNo,      //参数2：商户系统内部订单号
         ];
         $newData = json_encode($newData, JSON_UNESCAPED_UNICODE);
 
