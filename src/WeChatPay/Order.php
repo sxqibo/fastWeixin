@@ -12,18 +12,22 @@ class Order extends BaseService
 {
     /**
      * 通过商户订单号查询订单
-     * 
+     *
      * @param string $orderNo 订单单号
      * @return array
      */
     public function query($orderNo)
     {
         $endPoint = [
-            'url' => $this->base . "pay/transactions/out-trade-no/{$orderNo}",
+            'url'    => $this->base . "/pay/transactions/out-trade-no/{$orderNo}",
             'method' => 'GET',
         ];
 
-        $result = $this->client->requestApi($endPoint, [], [], $this->headers, true);
+        $params = [
+            'mchid' => $this->config['mch_id'],
+        ];
+
+        $result = $this->client->requestApi($endPoint, $params, [], $this->headers, true);
 
         return $this->handleResult($result);
     }
@@ -38,11 +42,15 @@ class Order extends BaseService
     public function queryByTransactionId($transactionId)
     {
         $endPoint = [
-            'url' => $this->base . "pay/transactions/id/{$transactionId}",
+            'url'    => $this->base . "/pay/transactions/id/{$transactionId}",
             'method' => 'GET',
         ];
 
-        $result = $this->client->requestApi($endPoint, [], [], $this->headers, true);
+        $params = [
+            'mchid' => $this->config['mch_id'],
+        ];
+
+        $result = $this->client->requestApi($endPoint, $params, [], $this->headers, true);
 
         return $this->handleResult($result);
     }
