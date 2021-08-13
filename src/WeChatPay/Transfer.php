@@ -49,7 +49,6 @@ class Transfer extends BaseService
         $newData = json_encode($newData);
         $result  = $this->client->requestApi($endPoint, [], $newData, $this->headers, true);
 
-        // file_put_contents('test.txt', json_encode($result));
 
         return $this->handleResult($result);
     }
