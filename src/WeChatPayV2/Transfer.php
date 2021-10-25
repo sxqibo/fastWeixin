@@ -1,6 +1,6 @@
 <?php
 
-namespace Sxqibo\FastWechat\WeChatPayV2;
+namespace Sxqibo\Weixin\WeChatPayV2;
 
 /**
  * 微信商户打款

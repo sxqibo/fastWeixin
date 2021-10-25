@@ -1,6 +1,6 @@
 <?php
 
-namespace Sxqibo\FastWechat\WeChatPayV2;
+namespace Sxqibo\Weixin\WeChatPayV2;
 
 use InvalidArgumentException;
 use Sxqibo\Weixin\Common\Client;
