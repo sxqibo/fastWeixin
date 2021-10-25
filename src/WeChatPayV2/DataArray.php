@@ -1,6 +1,6 @@
 <?php
 
-namespace Sxqibo\FastPayment\WeChatPayV2;
+namespace Sxqibo\FastWechat\WeChatPayV2;
 
 use ArrayAccess;
 
