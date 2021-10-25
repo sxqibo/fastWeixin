@@ -266,7 +266,7 @@ class BaseService
   * @params string $bank_name : 银行名称，4个汉字
   * return int $bank_code : 银行编码
   * */
-    private function getBankCode($bank_name)
+    public function getBankCode($bank_name)
     {
         $bank_code = 0;
         switch ($bank_name) {
