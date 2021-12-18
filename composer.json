@@ -22,6 +22,7 @@
     "guzzlehttp/guzzle": "~6.0",
     "overtrue/wechat": "^4.2.11",
     "wechatpay/wechatpay-guzzle-middleware": "^0.2.2",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "ext-json": "*"
   }
 }
