@@ -33,13 +33,13 @@ class Client
      *
      * @param $endPoint
      * @param array $query
-     * @param array $body
+     * @param array|null $body
      * @param array $headers
      * @param false $raw
      * @return array|mixed
      * @throws Exception
      */
-    public function requestApi($endPoint, $query = [], $body = null, $headers = [], $raw = false)
+    public function requestApi($endPoint, array $query = [], $body = null, $headers = [], $raw = false)
     {
         try {
             $options = [
@@ -61,7 +61,7 @@ class Client
                 }
             }
 
-            $client   = $this->getClient();
+            $client   = $this->getClient();  //微信支付的中间件
             $response = $client->request($endPoint['method'], $endPoint['url'], $options);
 
             $body = $response->getBody();
