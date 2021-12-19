@@ -11,15 +11,16 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use \Sxqibo\Weixin\Customer\BaseService;
 
 $data = [
-    'corpid'     => 'wwa2f92ffcdc49a813',
-    'corpsecret' => 'GXJtt3R5Qd8D_y9VGpAkUr8w9m02G2SI2ptOiOjqI0U'
+    'corpid'     => '',
+    'corpsecret' => ''
 ];
 try {
-    $token = new BaseService($data);
-    echo $token->getAccessToken();
+    $account = new \Sxqibo\Weixin\Customer\Account($data);
+    $data = $account->listAccount();
+    print_r($data);
+
 } catch (Exception $e) {
     print_r($e->getMessage());
 } catch (\GuzzleHttp\Exception\GuzzleException $e) {

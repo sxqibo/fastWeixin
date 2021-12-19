@@ -18,13 +18,23 @@ use Sxqibo\Weixin\Common\Client;
 
 class BaseService
 {
-
+    protected $base = 'https://qyapi.weixin.qq.com/cgi-bin/kf/';
     /**
      * @var Client
      */
     protected $client;
+
+    /**
+     * @var mixed
+     */
     protected $corpid;
+
+    /**
+     * @var mixed
+     */
     protected $corpsecret;
+
+    protected $access_token;
 
     /**
      * @throws Exception
@@ -46,15 +56,20 @@ class BaseService
             //step2:引入guzzle
             $this->client = new \GuzzleHttp\Client();
 
+            //step3:获取accessToken
+            $this->access_token = $this->getAccessToken();
+
         } catch (RequestException $e) {
             throw new Exception('请求异常' . $e->getMessage());
+
         } catch (\InvalidArgumentException $e) {
             throw new Exception($e->getMessage());
+
         }
     }
 
     /**
-     * @return string
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getAccessToken()
@@ -62,29 +77,25 @@ class BaseService
         // step1: 请求信息
         $url    = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' . $this->corpid . '&corpsecret=' . $this->corpsecret;
         $res    = $this->client->request('GET', $url);
-        $data   = json_decode($res->getBody(), true);
-        $result = $this->handleResult($data);
+        $result = $this->handleResult($res);
 
-        // step2: 返回
-        if ($result['code'] != 0) {
-            throw new InvalidArgumentException("获取Token失败" . $result['data']['errmsg']);
-        }
-
-        return $result['data']['access_token'];
+        return $result['access_token'];
     }
 
     /**
      * 处理返回结果
      *
-     * @param $result
+     * @param $res
      * @return array
      */
-    public function handleResult($result)
+    public function handleResult($res)
     {
-        if (isset($result['code'])) {
-            return ['code' => -1, 'code_text' => $result['code'], 'message' => $result['message'], 'data' => []];
+        $result = json_decode($res->getBody(), true);
+
+        if ($result['errcode'] != 0) {
+            throw new InvalidArgumentException("获取失败" . $result['errmsg']);
         }
 
-        return ['code' => 0, 'message' => '成功', 'data' => $result];
+        return $result;
     }
 }
