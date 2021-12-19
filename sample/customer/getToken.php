@@ -13,8 +13,8 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 $data = [
-    'corpid'     => '',
-    'corpsecret' => ''
+    'corpid'     => 'wwa2f92ffcdc49a813',
+    'corpsecret' => 'WzWJDBk9BhQ38VxrkDQfXrlAi8USFcg-TL6rRglpv9Q'
 ];
 try {
     $account = new \Sxqibo\Weixin\Customer\Account($data);
